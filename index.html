@@ -5,22 +5,11 @@
     <title>Project-01</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js'></script>
-    <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css' />
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
-    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-    <!-- Firechat -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.css" />
-    <script src="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.js"></script>
-    <script defer src='js/auth.js'></script>
-    <script defer src='js/chat.js'></script>
+
 
 
     <style type="text/css">
@@ -82,6 +71,16 @@
             opacity: 0.5;
         }
 
+        a:focus,
+        a:active {
+            outline: 0;
+        }
+
+        *::after:hover,
+        *::after:active {
+            outline: 0;
+        }
+
         p {
             text-align: center;
         }
@@ -116,6 +115,7 @@
         }
 
     </style>
+
 
 </head>
 
@@ -161,6 +161,20 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js'></script>
+    <!-- <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css' /> -->
+    <!-- <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" /> -->
+    <!-- FireBase -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.js"></script>
+    <script defer src='js/auth.js'></script>
+    <script defer src='js/chat.js'></script>
+    <script defer src='js/initfirebase.js'></script>
     <script>
         // Initialize Firebase
         var config = {
@@ -173,12 +187,10 @@
         };
         firebase.initializeApp(config);
     </script>
-    <script type="text/javascript">
 
-
-    </script>
-
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </body>
 
