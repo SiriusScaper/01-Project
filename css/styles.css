@@ -43,3 +43,10 @@ body {
     top: -170%;
   }
 }
+
+#card-body-1 {
+  margin-left: 500px;
+  margin-top: 500px;
+  border: solid, 5px;
+  background-color: white;
+}
