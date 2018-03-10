@@ -15,6 +15,7 @@
     <script src="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.js"></script>
     <script defer src='js/auth.js'></script>
     <script defer src='js/chat.js'></script>
+    <script src='js/initfirebase.js'></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 </head>
 
@@ -33,23 +34,10 @@
     <!-- The surrounding HTML is left untouched by FirebaseUI.
          Your app may use that space for branding, controls and other customizations.-->
     <h1>Welcome to My Awesome App</h1>
-    <div id="firebaseui-auth-container"></div>
     <div id="firechat-wrapper">
-        <button onclick="login('twitter');">Login with Twitter</button>
+        <div id="firebaseui-auth-container"></div>
     </div>
 
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyCMyjuKk5FjXyxYiKe4nLHP8cUsuT05MuQ",
-            authDomain: "projectraptoreinstein-2de14.firebaseapp.com",
-            databaseURL: "https://projectraptoreinstein-2de14.firebaseio.com",
-            projectId: "projectraptoreinstein-2de14",
-            storageBucket: "projectraptoreinstein-2de14.appspot.com",
-            messagingSenderId: "995042171648"
-        };
-        firebase.initializeApp(config);
-    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
