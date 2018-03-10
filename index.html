@@ -6,35 +6,161 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js'></script>
+    <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css' />
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
     <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <!-- Firechat -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.css" />
     <script src="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.js"></script>
     <script defer src='js/auth.js'></script>
     <script defer src='js/chat.js'></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            background: seashell;
+            height: auto width: 100vw;
+            background-image: url(img/layer1.png);
+            background-size: 100%;
+            background-position: center center;
+            overflow: hidden;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .card-img-top {
+            height: 28vh;
+            width: 16vw;
+            border: 5px solid rgb(88, 88, 88);
+            border-radius: 50%;
+            margin-left: 25%;
+            padding: 0;
+            margin-bottom: 10%;
+        }
+
+
+        .card {
+            /* border: 1px solid rgb(32, 77, 175); */
+            background: rgba(165, 146, 133, 0.25);
+            color: rgb(255, 255, 255);
+            border: 1px solid rgb(85, 85, 85);
+            width: 500px;
+            height: 500px;
+
+        }
+
+        h6,
+        .card-title {
+            text-align: center;
+        }
+
+        img {
+            border: 1px solid black;
+        }
+
+        .text-muted {
+            opacity: 1;
+            color: rgb(255, 255, 255);
+        }
+
+        a {
+            opacity: 1;
+        }
+
+        a:hover {
+            opacity: 0.5;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        #card-body-2 {
+            display: none;
+        }
+
+        button {
+            padding: 15px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: rosybrown;
+            color: #fff;
+            outline: 0;
+            border: 2px solid #bbb;
+            opacity: 0.8;
+            box-shadow: #000 0px 0 2px;
+            margin-left: 35%;
+        }
+
+        button:hover,
+        button:focus {
+            opacity: 1.0;
+            box-shadow: #000 0px 0 2px;
+        }
+
+        .fluid-container {
+            height: 40em !important;
+            margin-top: 9em;
+            color: #fff;
+        }
+
+    </style>
+
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-3"></h1>
-            <p class="lead">Project-01</p>
-            <hr class="my-2">
-            <p>More info</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-            </p>
+
+    <div class="fluid-container" id="card-body-1">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="img/demo1.jpg" alt="">
+                        <h5 class="card-title">HAN SOLO</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">SUBTITL</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <button type="submit" href="#" class="card-link">GET STARTED!</button>
+                    </div>
+                    <!-- <div class="card-body">
+                        <img class="card-img-top" src="img/demo1.jpg" alt="">
+                        <h5 class="card-title">HAN SOLO</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">SUBTITL</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <button href="#" class="card-link">GET STARTED!</button>
+                    </div> -->
+
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+        <div class="container-fluid" id="card-body-2">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <div class="card-body">
+                        <img class="card-img-top" src="img/demo1.jpg" alt="">
+                        <h5 class="card-title">HAN SOLO</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">SUBTITL</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <button type="submit" href="#" class="card-link">GET STARTED!</button>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
         </div>
     </div>
-    <!-- The surrounding HTML is left untouched by FirebaseUI.
-         Your app may use that space for branding, controls and other customizations.-->
-    <h1>Welcome to My Awesome App</h1>
-    <div id="firebaseui-auth-container"></div>
-
     <script>
         // Initialize Firebase
         var config = {
@@ -47,13 +173,12 @@
         };
         firebase.initializeApp(config);
     </script>
+    <script type="text/javascript">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+
+    </script>
+
+
 
 </body>
 
