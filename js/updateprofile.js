@@ -108,34 +108,58 @@ console.log(matchData);
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+$('#btn1').on('click', function(event){
+  event.preventDefault();
+  let userName = $('#user_name').val().trim();
+  let userAge = $('#user_age').val().trim();
+  let userGender = $('#user_gender').val().trim();
+  let userSpecies = speciesData[Math.floor(Math.random()*Math.floor(speciesData.length))].name;
+  let user = firebase.auth().currentUser;
 //on submit profile
-database.ref().push({
+database.ref('/userArray').push({
   uid:user.uid,
   name:userName,
-  age:userAge,
-  gender:userGender,
+  // age:userAge,
+  // gender:userGender,
   species:userSpeicies,
-  speciesMatches:speciesData,
-  userMatches: matchData
+  // speciesMatches:speciesData,
+  userMatches: matchData,
+  matchCounter:this.userMatches.length-1
 });
+
+database.ref().orderByChild('dateAdded').limitToLast(1).on('child_added' function(snapshot){
+  let sv = snapshot.val();
+  for(var i = 0; i<sv.userArray.length-1; i++){
+    sv.userArray[i].userMatches.push({
+      uid:sv.userArray[sv.userArray.length-1].uid
+      matchRating:Math.floor(Math.random()*Math.floor(100));
+    // run quicksort on sv.userArray[i].userMatches
+    sv.userArray[i].userMatches = quicksortBasic(sv.userArray[i].userMatches);
+    })
+    database.ref('/userArray['+i+']/matchData').set({
+      userMatches:sv.userArray[i].userMatches
+    })
+  }
+})
+
+
+
 //when a new child is added update each match data of every user to include the new user
 //snapshot user
 //create a match rating for the newest member and push that plus their user id to each user's matchData except the newest user
 //quick sort matchData for each user
 //update firebase database with the new info
-on('child_added' function(snapshot){
-let sv = snapshot.val();
-for(var i = 0; i<sv.userArray.length-1; i++){
-  sv.userArray[i].userMatches.push({
-    uid:sv.userArray[sv.userArray.length-1].uid
-    matchRating:Math.floor(Math.random()*Math.floor(100));
-    // run quicksort on sv.userArray[i].userMatches
-  })
-}
-for(var j = 0; j<sv.userArray.length-1){
-  database.ref('/userArray['+i+']/matchData').set()
-}
-})
+
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//NEED TO DO
+// Get firebase snapshot
+// create user match data
+// push user info to user array on firebase
+// update all user match info on database with the newest child
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //race selection on button click
 //will happen once the user has filled in basic profile details
@@ -145,60 +169,30 @@ $('#btn1').on('click', function(event){
   let userAge = $('#user_age').val().trim();
   let userGender = $('#user_gender').val().trim();
   let userSpecies = speciesData[Math.floor(Math.random()*Math.floor(speciesData.length))].name;
-  $('#species').append('<p>'+userSpecies+'</p>');
-  userObject = {
-    name: userName,
-    age: userAge,
-    gender: userGender,
-    species: userSpecies,
-    speciesData: speciesData
-  };
+  let   userObject = {
+      name: userName,
+      age: userAge,
+      gender: userGender,
+      species: userSpecies,
+      speciesData: speciesData
+      match counter
+    }
+  // $('#species').append(
+  //   '<p>'+userSpecies+'</p>');
+
   console.log(userObject);
 })
 
 
-
-
-
-//Quicksort code
-// function quickSort(arr, left, right){
-//    var len = arr.length,
-//    pivot,
-//    partitionIndex;
-//
-//
-//   if(left < right){
-//     pivot = right;
-//     partitionIndex = partition(arr, pivot, left, right);
-//
-//    //sort left and right
-//    quickSort(arr, left, partitionIndex - 1);
-//    quickSort(arr, partitionIndex + 1, right);
-//   }
-//   return arr;
-// }
-//
-// function partition(arr, pivot, left, right){
-//    var pivotValue = arr[pivot],
-//        partitionIndex = left;
-//
-//    for(var i = left; i < right; i++){
-//     if(arr[i] < pivotValue){
-//       swap(arr, i, partitionIndex);
-//       partitionIndex++;
-//     }
-//   }
-//   swap(arr, right, partitionIndex);
-//   return partitionIndex;
-// }
-//
-// function swap(arr, i, j){
-//    var temp = arr[i];
-//    arr[i] = arr[j];
-//    arr[j] = temp;
-// }
-//Quicksort Code Ends
-
+$('#parentDiv').on('click', "#encourage" function(){
+  let queryURL = 'https://api.giphy.com/v1/gifs/random?tag=you+can+do_it&api_key=Bw2Sm4QKp6nTTXf2FHIX43JXWoQpQCpo'
+  $.ajax({
+    queryURL:queryURL,
+    method:'GET'
+  }).then(function(response){
+    console.log(response);
+  })
+})
 //"I need encouragement" button?
 //Give them a button to click if they need a boost because some people need a little confidence bump to initiate
 //show them a 'you can do it!' gif chosen at random from giphy
