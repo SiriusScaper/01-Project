@@ -115,6 +115,9 @@ $('#btn1').on('click', function(event){
   let userGender = $('#user_gender').val().trim();
   let userSpecies = speciesData[Math.floor(Math.random()*Math.floor(speciesData.length))].name;
   let user = firebase.auth().currentUser;
+
+//make matchData for the new user by taking snapshot
+
 //on submit profile
 database.ref('/userArray').push({
   uid:user.uid,
@@ -163,25 +166,6 @@ database.ref().orderByChild('dateAdded').limitToLast(1).on('child_added' functio
 
 //race selection on button click
 //will happen once the user has filled in basic profile details
-$('#btn1').on('click', function(event){
-  event.preventDefault();
-  let userName = $('#user_name').val().trim();
-  let userAge = $('#user_age').val().trim();
-  let userGender = $('#user_gender').val().trim();
-  let userSpecies = speciesData[Math.floor(Math.random()*Math.floor(speciesData.length))].name;
-  let   userObject = {
-      name: userName,
-      age: userAge,
-      gender: userGender,
-      species: userSpecies,
-      speciesData: speciesData
-      match counter
-    }
-  // $('#species').append(
-  //   '<p>'+userSpecies+'</p>');
-
-  console.log(userObject);
-})
 
 
 $('#parentDiv').on('click', "#encourage" function(){
@@ -193,6 +177,7 @@ $('#parentDiv').on('click', "#encourage" function(){
     console.log(response);
   })
 })
+
 //"I need encouragement" button?
 //Give them a button to click if they need a boost because some people need a little confidence bump to initiate
 //show them a 'you can do it!' gif chosen at random from giphy
