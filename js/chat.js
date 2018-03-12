@@ -1,10 +1,3 @@
-firebase.auth().onAuthStateChanged(function(user) {
-	// Once authenticated, instantiate Firechat with the logged in user
-	if (user) {
-		initChat(user);
-	}
-});
-
 function initChat(user) {
 	// Get a Firebase Database ref
 	var chatRef = firebase.database().ref('chat');
@@ -18,3 +11,10 @@ function initChat(user) {
 	// Set the Firechat user
 	chat.setUser(user.uid, user.displayName);
 }
+
+firebase.auth().onAuthStateChanged(function(user) {
+	// Once authenticated, instantiate Firechat with the logged in user
+	if (user) {
+		initChat(user);
+	}
+});
