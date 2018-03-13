@@ -7,6 +7,7 @@ $(document).ready(function(){
   let speciesData = [];
   let anotherPage;
   let morePagesURL;
+  let userMatches = [];
 
   //recursive function to get information from multiple pages of api results
   //necessary due to the way results are stored on this API
@@ -46,8 +47,8 @@ $(document).ready(function(){
     for(var i = 0; i<response.results.length; i++){
       speciesData.push({name: response.results[i].name, match: null, url: response.results[i].url});
     }
-    console.log(response);
-    console.log(speciesData);
+    // console.log(response);
+    // console.log(speciesData);
     anotherPage = response.next;
     speciesPageSearch();
   })
@@ -56,16 +57,72 @@ $(document).ready(function(){
     event.preventDefault();
     updateProfile();
   })
+
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  //Needs to be updated for actual use with server
 
-  //Match data
-  let matchData = []
-  //array of Users that will be stored on firebase
-  let userData = []
-  //current user
-  // let user = firebase.auth().currentUser;
+
+
+  function updateProfile(){
+    let user = firebase.auth().currentUser;
+    let uid = user.uid;
+    let userDataRef = database.ref('userData');
+    let newChildRef = database.ref('userData/'+uid);
+    let userSpecies = speciesData[Math.floor(Math.random()*Math.floor(speciesData.length))].name;
+    let userName = $('#user_name').val().trim();
+    let userAge = $('#user_age').val().trim();
+    let userGender = $('#user_gender').val().trim();
+
+    console.log(user);
+    console.log(userName);
+    console.log(userAge);
+    console.log(userGender);
+    console.log(userSpecies);
+
+    //make userMatches for the new user by taking snapshot
+    database.ref().once('value').then(function(snapshot){
+      let sv = snapshot.val();
+      console.log(sv);
+      for(var i = 0; i<sv.userList.length; i++){
+        userMatches.push({
+          uid:sv.userList[i],
+          matchRating:Math.floor(Math.random()*Math.floor(100))
+        })
+      }
+      database.ref('userData/'+uid).update({userMatches:userMatches});
+    })
+
+    //update the userlist
+    database.ref().once('value').then(function(snapshot){
+      let sv = snapshot.val();
+      console.log(sv);
+      sv.userList.push(firebase.auth().currentUser.uid);
+      database.ref().update({userList:sv.userList});
+    })
+
+    //update the userQuantity counter
+    database.ref('userQuantity').once('value').then(function(snapshot){
+      let sv = snapshot.val();
+      let updatedVal = parseInt(sv)+1;
+      console.log(sv);
+      database.ref().update({userQuantity:updatedVal});
+    })
+    console.log(userMatches);
+    //add the new user object to userData
+    newChildRef.set({
+      uid:uid,
+      name:userName,
+      age:userAge,
+      gender:userGender,
+      species:userSpecies,
+      userMatches:userMatches,
+      matchCounter:0
+    });
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  //Needs to be updated for actual use with serverx
 
   // basic quick Sort implementation adjusted for our array of objects (pivot is the first element of the array)
   function quicksortBasic(array) {
@@ -87,126 +144,47 @@ $(document).ready(function(){
 
     return quicksortBasic(lesser).concat(pivot, quicksortBasic(greater));
   }
-
-  //when new user is added updated matchData
-  for(var i = 0; i<userData.length; i++){
-    matchData.push({
-      uid:userData[i].uid,
-      matchRating:Math.floor(Math.random()*Math.floor(100))
-    });
-  }
-  console.log(matchData);
-  //Sort Match ratings
-  matchData = quicksortBasic(matchData);
-  console.log(matchData);
-
-  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-  function updateProfile(){
-    let userName = $('#user_name').val().trim();
-    let userAge = $('#user_age').val().trim();
-    let userGender = $('#user_gender').val().trim();
-    let userSpecies = speciesData[Math.floor(Math.random()*Math.floor(speciesData.length))].name;
-    let userMatches = [{test:1, test2:2},{tset:1, tset2:2}];
-    let user = firebase.auth().currentUser;
-    let uid = user.uid;
-    let userDataRef = database.ref('userData');
-    let newChildRef = database.ref('userData/'+uid);
-
-    console.log(user);
-    console.log(userName);
-    console.log(userAge);
-    console.log(userGender);
-    console.log(userSpecies);
-
-    //make userMatches for the new user by taking snapshot
-    userDataRef.once('value').then(function(snapshot){
-      let sv = snapshot.val();
-      console.log(sv);
-      // for(var i in sv){
-      //   userMatches.push({
-      //     ,
-      //     matchRating:Math.floor(Math.random()*Math.floor(100))
-      //   })
-      //   userMatches = quicksortBasic(userMatches);
-      //   console.log(userMatches)
-      // }
-    })
-    console.log(userMatches);
-    //on submit profile
-    console.log('new child ref is'+newChildRef);
-
-    //update the userlist
-    database.ref().once('value').then(function(snapshot){
-      let sv = snapshot.val();
-      console.log(sv);
-      sv.userList.push(firebase.auth().currentUser.uid);
-      database.ref().update({userList:sv.userList});
-    })
-
-    //update the userQuantity counter
-    database.ref('userQuantity').once('value').then(function(snapshot){
-      let sv = snapshot.val();
-      let updatedVal = parseInt(sv)+1;
-      console.log(sv);
-      database.ref().update({userQuantity:updatedVal});
-    })
-
-    //add the new user object to userData
-    newChildRef.set({
-      uid:uid,
-      name:userName,
-      age:userAge,
-      gender:userGender,
-      species:userSpecies,
-      // speciesMatches:speciesData,
-      userMatches:userMatches,
-      matchCounter:0
-    });
-  }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+//button for test use
 $('#parentElement').on('click', '#listenedForId2', function(event){
   event.preventDefault();
   // database.ref().once('value').then(function(snapshot){
   //   let sv = snapshot.val();
   //   console.log(sv);
-  //   for(var i = 0; i<sv.userList.length-1;i++){
-  //     let userI = sv.userList[i];
-  //     console.log(userI);
-  //     // console.log(database.userData[sv.userList[i]].userMatches);
-  //     sv.userData[userI].userMatches.push({
-  //       uid:sv.userList[sv.userList.length-1],
+  //   for(var i = 0; i<sv.userList.length; i++){
+  //     userMatches.push({
+  //       uid:sv.userList[i],
   //       matchRating:Math.floor(Math.random()*Math.floor(100))
   //     })
-  //     let updatedMatches = quicksortBasic(sv.userData[userI].userMatches);
-  //     console.log("updatedMatches: "+updatedMatches)
-  //     database.ref('userData/'+sv.userList[i]).update({userMatches:updatedMatches})
   //   }
+  //   console.log(userMatches);
+  //   // database.ref('userData/'+uid).update({userMatches:userMatches});
   // })
 
 })
 
 
-database.ref('userData').on('child_added', function(){
-  database.ref().once('value').then(function(snapshot){
-    let sv = snapshot.val();
-    console.log(sv);
-    for(var i = 0; i<sv.userList.length-1;i++){
-      let userI = sv.userList[i];
-      console.log(userI);
-      // console.log(database.userData[sv.userList[i]].userMatches);
-      sv.userData[userI].userMatches.push({
-        uid:sv.userList[sv.userList.length-1],
-        matchRating:Math.floor(Math.random()*Math.floor(100))
-      })
-      let updatedMatches = quicksortBasic(sv.userData[userI].userMatches);
-      console.log("updatedMatches: "+updatedMatches)
-      database.ref('userData/'+sv.userList[i]).update({userMatches:updatedMatches})
-    }
+  database.ref('userList').on('child_added', function(){
+    database.ref().once('value').then(function(snapshot){
+      let sv = snapshot.val();
+      console.log(sv);
+      for(var i = 0; i<sv.userList.length-1;i++){
+        let userI = sv.userList[i];
+        //if statement prevents it from firing upon pageload when not needed
+        if(sv.userData[userI].userMatches[sv.userData[userI].userMatches.length-1].uid == sv.userList[sv.userList.length-1]){
+          return
+        } else {
+          sv.userData[userI].userMatches.push({
+            uid:sv.userList[sv.userList.length-1],
+            matchRating:Math.floor(Math.random()*Math.floor(100))
+          })
+          let updatedMatches = sv.userData[userI].userMatches;
+          database.ref('userData/'+sv.userList[i]+'/userMatches').set(updatedMatches)
+        }
+      }
+    })
   })
-})
 
 })//document.ready close
 
