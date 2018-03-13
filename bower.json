@@ -1,0 +1,35 @@
+{
+  "name": "01-project",
+  "homepage": "https://github.com/DanFeinstat/01-Project",
+  "description": "",
+  "main": "index.html",
+  "keywords": [
+    "UCD",
+    "Bootcamp",
+    "Project",
+    "01"
+  ],
+  "authors": [
+    "dan",
+    "sam",
+    "ryan",
+    "anthony"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bourbon": "^5.0.0",
+    "firebase": "^4.10.1",
+    "meyer-reset": "*",
+    "modernizr": "^3.6.0",
+    "bootstrap4": "^4.0.0",
+    "firechat": "^3.0.1"
+  }
+}

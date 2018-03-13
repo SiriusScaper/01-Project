@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: seashell;
+  height: 100%;
+  width: 100vw;
+  background-image: url(../img/layer1.png);
+  background-size: 100%;
+  background-position: center center;
+  overflow: scroll;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.card-img-top {
+  height: 28vh;
+  width: 16vw;
+  border: 5px solid rgb(88, 88, 88);
+  border-radius: 50%;
+  margin-left: 25%;
+  padding: 0;
+  margin-bottom: 10%;
+}
+
+.card {
+  /* border: 1px solid rgb(32, 77, 175); */
+  background: rgba(165, 146, 133, 0.25);
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(85, 85, 85);
+  width: 500px;
+  height: 500px;
+}
+
+.fire_hidden {
+  display: none;
+  top: 0;
+  left: 0;
+}
+
+h6,
+.card-title {
+  text-align: center;
+}
+
+img {
+  border: 1px solid black;
+}
+
+.text-muted {
+  opacity: 1;
+  color: rgb(255, 255, 255);
+}
+
+a {
+  opacity: 1;
+}
+
+a:hover {
+  opacity: 0.5;
+}
+
+a:focus,
+a:active {
+  outline: 0;
+  border-style: 0;
+  box-shadow: 0;
+}
+
+*::after:hover,
+*::after:active {
+  outline: 0;
+  border-style: 0;
+  box-shadow: 0;
+}
+
+p {
+  text-align: center;
+}
+
+.fire_hidden,
+#card-body-2 {
+  display: none;
+}
+
+button {
+  padding: 15px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rosybrown;
+  color: #fff;
+  outline: 0;
+  border: 2px solid #bbb;
+  opacity: 0.8;
+  box-shadow: #000 0px 0 2px;
+  margin-left: 35%;
+}
+
+button:hover,
+button:focus {
+  opacity: 1;
+  box-shadow: #000 0px 0 2px;
+}
+
+.fluid-container {
+  height: 40em !important;
+  margin-top: 9em;
+  color: #fff;
+}
