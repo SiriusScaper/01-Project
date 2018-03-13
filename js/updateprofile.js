@@ -1,4 +1,9 @@
-
+//THIS MODULE WILL
+//query the swapi api and pull all the species data with a rescursive search;
+//take user input data to creat a new user object;
+//take data from firebase to create a matchlist for the new user;
+//add the new user object to userData on the the database and their uid to the userList on the database;
+//when a new child is added to userList on firebase, all previous user objects will update their match lists to include the new user;
 $(document).ready(function(){
   let database = firebase.database();
 
@@ -122,49 +127,38 @@ $(document).ready(function(){
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  //Needs to be updated for actual use with serverx
+  //Needs to be updated for actual use with server
+  //being moved to newMatch.js
 
   // basic quick Sort implementation adjusted for our array of objects (pivot is the first element of the array)
-  function quicksortBasic(array) {
-    if(array.length < 2) {
-      return array;
-    }
-
-    var pivot = array[0];
-    var lesser = [];
-    var greater = [];
-
-    for(var i = 1; i < array.length; i++) {
-      if(array[i].matchRating < pivot.matchRating) {
-        lesser.push(array[i]);
-      } else {
-        greater.push(array[i]);
-      }
-    }
-
-    return quicksortBasic(lesser).concat(pivot, quicksortBasic(greater));
-  }
+  // function quicksortBasic(array) {
+  //   if(array.length < 2) {
+  //     return array;
+  //   }
+  //
+  //   var pivot = array[0];
+  //   var lesser = [];
+  //   var greater = [];
+  //
+  //   for(var i = 1; i < array.length; i++) {
+  //     if(array[i].matchRating < pivot.matchRating) {
+  //       lesser.push(array[i]);
+  //     } else {
+  //       greater.push(array[i]);
+  //     }
+  //   }
+  //
+  //   return quicksortBasic(lesser).concat(pivot, quicksortBasic(greater));
+  // }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //button for test use
-$('#parentElement').on('click', '#listenedForId2', function(event){
-  event.preventDefault();
-  // database.ref().once('value').then(function(snapshot){
-  //   let sv = snapshot.val();
-  //   console.log(sv);
-  //   for(var i = 0; i<sv.userList.length; i++){
-  //     userMatches.push({
-  //       uid:sv.userList[i],
-  //       matchRating:Math.floor(Math.random()*Math.floor(100))
-  //     })
-  //   }
-  //   console.log(userMatches);
-  //   // database.ref('userData/'+uid).update({userMatches:userMatches});
-  // })
+//currently being used in newMatch.js
+// $('#parentElement').on('click', '#listenedForId2', function(event){
+//   event.preventDefault();
+// })
 
-})
-
-
+  //update each previous user object's match data with the new user;
   database.ref('userList').on('child_added', function(){
     database.ref().once('value').then(function(snapshot){
       let sv = snapshot.val();
