@@ -1,14 +1,13 @@
 jQuery(document).ready(function($) {
   /* cache jQuery objects */
-  var slideshow = $(".cd-slideshow"),
-    slides = slideshow.children("li"),
-    navigation = $(".cd-slideshow-nav");
-  /* initialize varaibles */
+  var mWrap = $(".main_wrapper"),
+    slideshow = $(".cd-slideshow"),
+    slides = slideshow.children("li");
   var delta = 0,
     scrollThreshold = 2,
     resizing = false,
     scrolling = true;
-  //important to keep scrolling set to true; updateOnScrøll() catches the DOMMouseEvent and
+  //important to keep scroll tracking set to true; updateOnScroll() catches the DOMMouseEvent and
   //hijacks it, we just want to
 
   /* check media query and bind corresponding events */

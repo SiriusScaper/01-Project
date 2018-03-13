@@ -92,9 +92,9 @@ a {
   margin-right: 5px;
   border-radius: 50%;
   border: 1px solid #ffffff;
-  -webkit-transition: background-color 3.25s;
-  -moz-transition: background-color 3.25s;
-  transition: background-color 3.25s;
+  -webkit-transition: background-color 2s;
+  -moz-transition: background-color 2s;
+  transition: background-color 2s;
 }
 .cd-slideshow .slider-dots li.active {
   background-color: #ffffff;
@@ -205,7 +205,7 @@ a {
     -webkit-transition: all 2.25s;
     -moz-transition: all 2.25s;
     transition: all 2.25s;
-    border: 1px solid #f86b6b; /* DEBUG */
+    border: 1px solid rgba(160, 160, 160, 0.233); /* DEBUG */
     /* background: url(../img/layer_A.png); -- trying to insert space into slides */
   }
   .cd-slider-content::after {
@@ -219,7 +219,7 @@ a {
     width: 100%;
     /* border-radius: inherit; */
     background-color: #010101;
-    border: 1px solid rgb(122, 59, 182); /* DEBUG */
+    border: 1px solid rgb(70, 57, 83); /* DEBUG */
     /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.1); */
     opacity: 1;
@@ -245,11 +245,27 @@ a {
   .cd-slider-content h2 {
     font-size: 10rem;
     font-weight: 300;
-    border: 1px solid orangered; /* DEBUG */
+    border: 1px solid #333; /* DEBUG */
+  }
+  .cd-slider-content h2:first-of-type {
+    font-size: 9rem;
+    line-height: 1.5;
+    text-transform: capitalize;
+    color: rgb(255, 212, 19);
+    text-shadow: #555 0px 15px 100px;
+    transform: rotateX(55deg);
   }
   .cd-slider-content p {
     font-weight: bold;
-    border: 1px solid orange; /* DEBUG */
+    border: 1px solid #222; /* DEBUG */
+  }
+}
+@keyframes cd-sidebar-slide {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -170%;
   }
 }
 

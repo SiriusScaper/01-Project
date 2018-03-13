@@ -5,52 +5,23 @@
     <title>Project-01</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <!-- DEBUG -->
+    <link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css' />
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
     <link rel="stylesheet" href="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.css" />
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/modernizr.min.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
 </head>
 
 <body>
     <div class="main_wrapper">
-        <!-- <div class="fluid-container" id="card-body-1">
-            <div class="row">
-                <div class="col"></div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <img class="card-img-top" src="img/demo1.jpg" alt="">
-                            <h5 class="card-title">HAN SOLO</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">SUBTITL</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button type="submit" href="#" class="card-link">GET STARTED!</button>
-                        </div>
-                       <div class="card-body">
-                        <img class="card-img-top" src="img/demo1.jpg" alt="">
-                        <h5 class="card-title">HAN SOLO</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">SUBTITL</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button href="#" class="card-link">GET STARTED!</button>
-                    </div>
-
-                    </div>
-                </div>
-                <div class="col"></div>
-            </div> -->
-
         <div class="cd-slideshow-wrapper">
             <ol class="cd-slideshow">
-                <li class="visible" id="slide-1">
+                <li id="slide-1">
                     <div class="cd-slider-content">
                         <div class="content-wrapper">
-
-                            <!--
-                                    * ******************** *
-                                    *     INJECT HERE      *
-                                    * ******************** *
-                                 -->
-
+                            <h2>STAR WARS</h2>
                         </div>
                     </div>
                 </li>
@@ -60,12 +31,19 @@
                         <li>
                             <div class="cd-slider-content">
                                 <div class="content-wrapper">
-                                    <h2>Slider #2</h2>
-                                    <!--
-                                    * ******************** *
-                                    *     INJECT HERE      *
-                                    * ******************** *
-                                 -->
+                                    <h2>CHOOSE YOUR PATH</h2>
+
+                                    <div class="fire_hidden" id="firebaseui-auth-container"></div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- <li>
+                            <div class="cd-slider-content">
+                                <div class="content-wrapper">
+                                    <h2>LOGIN SUBMIT</h2>
+
+                                    
                                 </div>
                             </div>
                         </li>
@@ -73,41 +51,11 @@
                         <li>
                             <div class="cd-slider-content">
                                 <div class="content-wrapper">
-                                    <h2>Slider #2 - Sub #1</h2>
-                                    <!--
-                                    * ******************** *
-                                    *     INJECT HERE      *
-                                    * ******************** *
-                                 -->
-                                </div>
-                            </div>
-                        </li>
+                                    <h2>LOGIN RETURN</h2>
 
-                        <li>
-                            <div class="cd-slider-content">
-                                <div class="content-wrapper">
-                                    <h2>Slider #2 - Sub #2</h2>
-                                    <!--
-                                    * ******************** *
-                                    *     INJECT HERE      *
-                                    * ******************** *
-                                 -->
                                 </div>
                             </div>
-                        </li>
-
-                        <li>
-                            <div class="cd-slider-content">
-                                <div class="content-wrapper">
-                                    <h2>Slider #2 - Sub #3</h2>
-                                    <!--
-                                    * ******************** *
-                                    *     INJECT HERE      *
-                                    * ******************** *
-                                 -->
-                                </div>
-                            </div>
-                        </li>
+                        </li> -->
                     </ol>
                     <!-- .sub-slides -->
                 </li>
@@ -115,13 +63,24 @@
                 <li id="slide-3">
                     <div class="cd-slider-content">
                         <div class="content-wrapper">
-                            <h2>Slider #3</h2>
-
-                            <!--
-                                    * ******************** *
-                                    *     INJECT HERE      *
-                                    * ******************** *
-                                 -->
+                            <h2>Profile</h2>
+                            <div class="box">
+                                <div class="column">
+                                    <input placeholder="name" type="text">
+                                    <select name="sex" id="sexChanges">
+                                        <option value="---" disabled>---</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Droid">Droid</option>
+                                        <option value="Jedi">Jedi</option>
+                                        <option value="---" disabled>---</option>
+                                    </select>
+                                    <input placeholder="age" type="text">
+                                    <input placeholder="description" type="text">
+                                    <button disabled type="submit">SAVE</button>
+                                    <!-- toggle ^ if everything is validated and filled -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -129,13 +88,16 @@
                 <li id="slide-4">
                     <div class="cd-slider-content">
                         <div class="content-wrapper">
-                            <h2>Slider #4</h2>
+                            <h2>SELECTION</h2>
+                            <div class="column">
+                                <div class="column_left profile_img">
+                                    <img src="https://" alt="">
+                                </div>
+                                <div class="column_right profile_img">
+                                    <img src="https://" alt="">
 
-                            <!--
-                                    * ******************** *
-                                    *     INJECT HERE      *
-                                    * ******************** *
-                                 -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -143,8 +105,8 @@
                 <li id="slide-5">
                     <div class="cd-slider-content">
                         <div class="content-wrapper">
-                            <h2>Slider #5</h2>
-
+                            <h2>CONVOS</h2>
+                            <!-- FIRECHAT -->
                             <!--
                                     * ******************** *
                                     *     INJECT HERE      *
@@ -212,8 +174,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <script src='js/app.js'></script>
-    <script src='js/transitions.js'></script>
+    <script src='js/main.js'></script>
+    <!-- <script src='js/transitions.js'></script> -->
 
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script type="text/javascript">
