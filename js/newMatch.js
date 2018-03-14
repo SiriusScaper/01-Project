@@ -7,6 +7,7 @@
 $(document).ready(function(){
   let database = firebase.database();
   let currentMatchUID = null;
+  let chatroom = "firebase.auth().currentUser.uid+' and '+currentMatchUID";
   //click event for a new patch partner
   $('#parentElement').on('click', '#listenedForId2', function(event){
     event.preventDefault();
@@ -45,6 +46,54 @@ $(document).ready(function(){
     })
   })
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$('#match').on('click', function(event){
+  event.preventDefault();
+  matchMe();
+})
+let matchMe = function(){
+  chatroom = firebase.auth().currentUser.uid+' and '+currentMatchUID;
+  database.ref('newChat').update({[chatroom]:{
+    uid1:firebase.auth().currentUser.uid, uid2:currentMatchUID}})
+  startListening();
+  //have it remove the button it's attached to so it can't be clicked again
+  //we don't want to create multiple instances of the chat
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//chat feature
+
+$('#post').on('click', function(event){
+  event.preventDefault();
+  let msgUser = firebase.auth().currentUser.uid;
+  let msgText = $('#user_Message').val().trim();
+  chatroom = firebase.auth().currentUser.uid+' and '+currentMatchUID;
+  database.ref('newChat/'+chatroom).push({
+    user:msgUser,
+    msg:msgText
+  })
+})
+
+let name_toDisplay = "";
+let msgUserUID = "";
+let startListening = function(){
+  database.ref('newChat/'+chatroom).on('child_added', function(snapshot){
+    let sv = snapshot.val();
+    msgUserUID = sv.user
+    let msg_toDisplay = sv.msg
+
+      database.ref().once('value').then(function(snap){
+        let sVal = snap.val();
+        console.log(sVal.newChat[chatroom].uid1);
+        if(sVal.newChat[chatroom].uid1 == firebase.auth().currentUser.uid || sVal.newChat[chatroom].uid2 == firebase.auth().currentUser.uid){
+          console.log(msgUserUID);
+          name_toDisplay = sVal.userData[msgUserUID].name;
+          $('#msg_Display').append('<div>'+name_toDisplay+': '+msg_toDisplay+'</div>');
+        }
+      });
+  })
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//sorting algorithm
   function quicksortBasic(array) {
     if(array.length < 2) {
       return array;
@@ -66,6 +115,7 @@ $(document).ready(function(){
   }
 })
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 // //pull up a fake ad every two clicks.
 //

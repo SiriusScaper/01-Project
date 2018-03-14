@@ -78,6 +78,8 @@ $(document).ready(function(){
     let userAge = $('#user_age').val().trim();
     let userGender = $('#user_gender').val().trim();
 
+    let userSpeciesImg = 'img/'+userSpecies+'Img.jpg'
+
     console.log(user);
     console.log(userName);
     console.log(userAge);
