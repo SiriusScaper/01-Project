@@ -9,7 +9,7 @@ $(document).ready(function() {
   let database = firebase.database();
 
   //global variables used in initial ajax call
-  let queryURL = "https://swapi.co/api/species/";
+
   let speciesData = [];
   let anotherPage;
   let morePagesURL;
@@ -20,9 +20,9 @@ $(document).ready(function() {
   //called at the end of the initial ajax call
   function speciesPageSearch() {
     if (
-      anotherPage === queryURL + "?page=2" ||
-      anotherPage === queryURL + "?page=3" ||
-      anotherPage === queryURL + "?page=4"
+      anotherPage === "https://swapi.co/api/species/?page=2" ||
+      anotherPage === "https://swapi.co/api/species/?page=3" ||
+      anotherPage === "https://swapi.co/api/species/?page=4"
     ) {
       $.ajax({
         url: anotherPage,
@@ -71,7 +71,7 @@ $(document).ready(function() {
     speciesPageSearch();
   });
   //initial ajax call to swapi to get species information
-  $("#parentElement").on("click", "#listenedForId", function(event) {
+  $("#encourageBtn").on("click", "#listenedForId", function(event) {
     event.preventDefault();
     updateProfile();
   });
@@ -95,6 +95,7 @@ $(document).ready(function() {
     let userGender = $("#user_gender")
       .val()
       .trim();
+    let userSpeciesImg = "img/" + userSpecies + "Img.jpg";
 
     console.log(user);
     console.log(userName);
@@ -149,6 +150,7 @@ $(document).ready(function() {
       species: userSpecies,
       userMatches: userMatches,
       matchCounter: 0,
+      speciesImg: userSpeciesImg,
     });
   }
 
@@ -235,15 +237,16 @@ $(document).ready(function() {
 //race selection on button click
 //will happen once the user has filled in basic profile details
 
-// $('#parentDiv').on('click', "#encourage", function(){
-//   let queryURL = 'https://api.giphy.com/v1/gifs/random?tag=you+can+do_it&api_key=Bw2Sm4QKp6nTTXf2FHIX43JXWoQpQCpo'
-//   $.ajax({
-//     queryURL:queryURL,
-//     method:'GET'
-//   }).then(function(response){
-//     console.log(response);
-//   })
-// })
+$("#parentDiv").on("click", "#encourage", function() {
+  let queryURL =
+    "https://api.giphy.com/v1/gifs/random?tag=you+can+do_it&api_key=Bw2Sm4QKp6nTTXf2FHIX43JXWoQpQCpo";
+  $.ajax({
+    queryURL: queryURL,
+    method: "GET",
+  }).then(function(response) {
+    console.log(response);
+  });
+});
 
 //"I need encouragement" button?
 //Give them a button to click if they need a boost because some people need a little confidence bump to initiate

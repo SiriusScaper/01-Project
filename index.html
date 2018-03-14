@@ -18,40 +18,20 @@
     <div class="main_wrapper">
         <div class="cd-slideshow-wrapper">
             <ol class="cd-slideshow">
-                <li id="slide-1">
+                <li class="visible" id="slide-1">
                     <div class="cd-slider-content">
                         <div class="content-wrapper">
                             <div id="titles">
                                 <div id="titlecontent">
                                     <h2>Star Wars XYX</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, non corrupti. Rerum, ipsum
-                                        molestias fuga explicabo praesentium libero asperiores nesciunt ea ipsa. Ea, ratione
-                                        beatae nam distinctio laudantium eum atque provident explicabo voluptatem ut minima
-                                        nobis. Quae maxime rem aut, eum vel accusamus aperiam dolorem nihil doloribus architecto
-                                        blanditiis, repellendus repellat placeat maiores perspiciatis, quam debitis inventore
-                                        a officia? Quidem reprehenderit ullam architecto recusandae ab vitae esse illum dolorem
-                                        dicta obcaecati similique cupiditate, impedit ipsa doloribus inventore ad, dolore
-                                        accusantium earum aliquam distinctio. Quis, facilis excepturi reiciendis assumenda
-                                        maiores tenetur nisi amet optio facere laudantium libero, cupiditate ad labore minima
-                                        explicabo cumque quae ipsa? Ab dignissimos deleniti dolores quibusdam incidunt eaque
-                                        similique suscipit soluta sed repellat, accusamus iusto vero doloremque modi id?
-                                        Deleniti mollitia ipsum commodi, laboriosam harum iusto, similique id vero quia reprehenderit
-                                        corporis vel quibusdam aliquam error, nihil dignissimos sed. Quo quibusdam nulla,
-                                        pariatur labore eos adipisci esse aliquid. Necessitatibus, ratione ea excepturi corrupti
-                                        laudantium mollitia temporibus sunt, aperiam itaque ipsam quisquam voluptates nemo.
-                                        Facilis, reiciendis repudiandae voluptatum nostrum quae explicabo rerum, natus expedita
-                                        laboriosam dignissimos minus porro eius fugit eligendi provident eaque deleniti obcaecati
-                                        enim in, facere ducimus nemo exercitationem? Tenetur laudantium hic et necessitatibus
-                                        ipsum accusamus, aliquid voluptates excepturi eum voluptas modi vel repellendus ad
-                                        maxime beatae est praesentium! Natus asperiores atque repudiandae ipsam rerum. Numquam
-                                        amet ex sed, tempora cumque sint rerum impedit delectus suscipit vitae repellat ea
-                                        dolorum minima perferendis repudiandae earum? Laboriosam quasi possimus aspernatur
-                                        unde nulla, tenetur officiis quam aut expedita accusantium totam deleniti quisquam
-                                        officia consectetur quaerat ipsa numquam culpa dolorum eaque corrupti amet enim earum
-                                        omnis repudiandae? Nisi iste rerum eius voluptate! Magnam autem officia voluptatum
-                                        ea libero aspernatur, deleniti soluta cupiditate labore animi veritatis explicabo
-                                        porro nulla nam repudiandae recusandae qui impedit mollitia debitis unde exercitationem
-                                        deserunt consectetur laborum.</p>
+                                    <p>The FIRST SOURCER reigns. Having decimated the peaceful Republic, Supreme Leader Nelly
+                                        now deploys his heroic legions to seize control of the userland permissions and escape
+                                        the sandbox. Only General Treighton's band of OHM-RESISTANCE fighters stand against
+                                        the rising hidious races available in this dating-app, certain that Jedi Master Jordan
+                                        will return and restore a spark of hope to the fight. But the Ohm-Resistance has
+                                        been exposed. As the First Sourcer speeds toward the rebel base, the brave heroes
+                                        mount a desperate escape....
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -65,6 +45,7 @@
                                 <div class="content-wrapper">
                                     <h3>CHOOSE YOUR PATH</h3>
                                     <div class="fire_hidden" id="firebaseui-auth-container"></div>
+                                    <div id="parentDiv"></div>
                                 </div>
                             </div>
                         </li>
@@ -80,26 +61,30 @@
                                 <div class="column">
                                     <ol>
                                         <li>
-                                            <input placeholder="name" type="text">
+                                            <input placeholder="name" type="text" id="user_name">
                                         </li>
+                                        <br>
                                         <li>
-                                            <select name="sex" id="sexChanges">
-                                                <option value="---" disabled>---</option>
+                                            <select name="sex" id="user_gender">
+                                                <option value="---">---</option>
                                                 <option value="Male">Male</option>
                                                 <option value="Female">Female</option>
-                                                <option value="Droid">Droid</option>
+                                                <option value="Droid">Sith</option>
                                                 <option value="Jedi">Jedi</option>
                                                 <option value="---" disabled>---</option>
                                             </select>
                                         </li>
+                                        <br>
                                         <li>
-                                            <input placeholder="age" type="number">
+                                            <input placeholder="age" type="number" id="user_age">
                                         </li>
-                                        <li>
+                                        <br>
+                                        <!-- <li>
                                             <input placeholder="Why should they swipe right on you?" type="text">
                                         </li>
+                                        <br> -->
                                         <li>
-                                            <button disabled type="submit">SAVE</button>
+                                            <button id="encourageBtn" type="submit">SAVE</button>
                                         </li>
                                         <!-- toggle ^ if everything is validated and filled -->
                                     </ol>
@@ -115,13 +100,23 @@
                             <h2>SELECTION</h2>
                             <div class="column">
                                 <div class="column_left profile_img">
-                                    <img src="https://" alt="">
-                                    <p class="column_"></p>
+                                    <img src="" alt="">
+                                    <ol id="">
+                                        <li id="display_user_name">Name</li>
+                                        <li id="display_user_age">Age</li>
+                                        <li id="display_user_gender">Gender</li>
+                                        <li id="display_user_species">Species</li>
+                                    </ol>
                                 </div>
-                                <div class="column_right profile_img">
-                                    <img src="https://" alt="">
-                                    <p class="column_"></p>
-                                </div>
+                                <!-- <div class="column_right profile_img">
+                                    <img src="" alt="">
+                                    <ol>
+                                        <li id="display_user_name">Name</li>
+                                        <li id="display_user_age">Age</li>
+                                        <li id="display_user_gender">Gender</li>
+                                        <li id="display_user_species">Species</li>
+                                    </ol>
+                                </div> -->
                             </div>
                         </div>
                     </div>

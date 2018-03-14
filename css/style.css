@@ -115,11 +115,18 @@ a {
 }
 .column input {
   outline: 0;
+  border: 3px #010101 solid;
+  width: 50%;
+  color: #fff;
+  background: #000;
 }
-.column input:::after,
-.column input:focus::after {
-  outline: 0;
-  border-style: 0;
+select {
+  border-radius: 0;
+  width: 50%;
+  border: 0;
+  background: #ccc;
+  padding: 1px 5px;
+  cursor: context-menu;
 }
 .cd-slideshow.remove-transitions {
   /* 
@@ -398,7 +405,7 @@ no-js
   color: rgb(255, 225, 72);
   position: absolute;
   top: 100%;
-  animation: scroll 100s linear 2s infinite;
+  animation: scroll 120s linear 2s forwards;
 }
 #titlecontent h2 {
   text-align: center;
