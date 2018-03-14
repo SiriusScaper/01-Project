@@ -67,28 +67,32 @@ $(document).ready(function(){
 })
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-//pull up a fake ad every two clicks.
-
+// //pull up a fake ad every two clicks.
+//
 // let clickCounter = 1;
 // let adCounter = 1;
 // let adArray = ['#ad1','#ad2', '#ad3', '#ad4'];
 // function adEnabler(){
+//   if(clickCounter%2 == 0){
 //     $(adArray[adCounter]).modal();
 //     clickCounter++;
 //     adCounter++;
 //     if(adCounter-1>adArray.length){
 //       adCounter = 0;
 //     }
+//   } else{
+//     clickCounter++;
+//   }
 // }
-//   $('#test').on('click', function(event){
-//     event.preventDefault();
-//     adEnabler();
-//   })
+// $('#test').on('click', function(event){
+//   event.preventDefault();
+//   adEnabler();
+// })
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-//Skip profile creation if user already exists.
-
+// Skip profile creation if user already exists.
+//
 // function userCheck(){
 //   database.ref().once('value').then(function(snapshot){
 //     let sv = snapshot.val();

@@ -203,15 +203,17 @@ $(document).ready(function(){
   //will happen once the user has filled in basic profile details
 
 
-  // $('#parentDiv').on('click', "#encourage", function(){
-  //   let queryURL = 'https://api.giphy.com/v1/gifs/random?tag=you+can+do_it&api_key=Bw2Sm4QKp6nTTXf2FHIX43JXWoQpQCpo'
-  //   $.ajax({
-  //     queryURL:queryURL,
-  //     method:'GET'
-  //   }).then(function(response){
-  //     console.log(response);
-  //   })
-  // })
+function encourage(){
+  let queryURL = 'https://api.giphy.com/v1/gifs/random?tag=you+can+do+it&api_key=Bw2Sm4QKp6nTTXf2FHIX43JXWoQpQCpo'
+  $.ajax({
+    url:queryURL,
+    method:'GET'
+  }).then(function(response){
+    console.log(response);
+    $('#gif_Display').empty();
+    $('#gif_Display').append('<img src="'+response.data.images.fixed_width.url+'" alt="randomGif">')
+  })
+}
 
   //"I need encouragement" button?
   //Give them a button to click if they need a boost because some people need a little confidence bump to initiate
