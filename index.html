@@ -21,41 +21,28 @@
                 <li id="slide-1">
                     <div class="cd-slider-content">
                         <div class="content-wrapper">
-                            <h2>STAR WARS</h2>
+                            <div id="titles">
+                                <div id="titlecontent">
+                                    <h2>Star Wars</h2>
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit facere iure magnam, cum
+                                        delectus earum cupiditate deserunt eum voluptate odio aut magni id repudiandae sit
+                                        sed suscipit esse dolore. Eum!</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </li>
 
-                <li id="slide-2">
+                <li id="slide-2" class="visible">
                     <ol class="sub-slides">
                         <li>
                             <div class="cd-slider-content">
                                 <div class="content-wrapper">
-                                    <h2>CHOOSE YOUR PATH</h2>
-
+                                    <h3>CHOOSE YOUR PATH</h3>
                                     <div class="fire_hidden" id="firebaseui-auth-container"></div>
                                 </div>
                             </div>
                         </li>
-
-                        <!-- <li>
-                            <div class="cd-slider-content">
-                                <div class="content-wrapper">
-                                    <h2>LOGIN SUBMIT</h2>
-
-                                    
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="cd-slider-content">
-                                <div class="content-wrapper">
-                                    <h2>LOGIN RETURN</h2>
-
-                                </div>
-                            </div>
-                        </li> -->
                     </ol>
                     <!-- .sub-slides -->
                 </li>
@@ -66,19 +53,31 @@
                             <h2>Profile</h2>
                             <div class="box">
                                 <div class="column">
-                                    <input placeholder="name" type="text">
-                                    <select name="sex" id="sexChanges">
-                                        <option value="---" disabled>---</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Droid">Droid</option>
-                                        <option value="Jedi">Jedi</option>
-                                        <option value="---" disabled>---</option>
-                                    </select>
-                                    <input placeholder="age" type="text">
-                                    <input placeholder="description" type="text">
-                                    <button disabled type="submit">SAVE</button>
-                                    <!-- toggle ^ if everything is validated and filled -->
+                                    <ol>
+                                        <li>
+                                            <input placeholder="name" type="text">
+                                        </li>
+                                        <li>
+                                            <select name="sex" id="sexChanges">
+                                                <option value="---" disabled>---</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Droid">Droid</option>
+                                                <option value="Jedi">Jedi</option>
+                                                <option value="---" disabled>---</option>
+                                            </select>
+                                        </li>
+                                        <li>
+                                            <input placeholder="age" type="number">
+                                        </li>
+                                        <li>
+                                            <input placeholder="Why should they swipe right on you?" type="text">
+                                        </li>
+                                        <li>
+                                            <button disabled type="submit">SAVE</button>
+                                        </li>
+                                        <!-- toggle ^ if everything is validated and filled -->
+                                    </ol>
                                 </div>
                             </div>
                         </div>
@@ -172,7 +171,7 @@
     <!-- .main_wrapper -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
 
     <script src='js/main.js'></script>
     <!-- <script src='js/transitions.js'></script> -->

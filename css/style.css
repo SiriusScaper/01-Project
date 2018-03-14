@@ -39,6 +39,7 @@ a {
   /* never visible - this is used in jQuery to check the current MQ */
   content: "mobile";
   display: none;
+  /* visibility: hidden; */
 }
 .cd-slideshow .sub-slides {
   width: 100%;
@@ -56,6 +57,7 @@ a {
   clear: both;
   content: "";
   display: table;
+  /* display: none; */
 }
 .cd-slideshow > li,
 .cd-slideshow .sub-slides > li {
@@ -102,6 +104,10 @@ a {
 .cd-slideshow .slider-dots li:last-of-type {
   margin-right: 0;
 }
+.column {
+  width: auto;
+  height: auto;
+}
 .cd-slideshow.remove-transitions {
   /* 
   	remove transition on transforms 
@@ -131,6 +137,7 @@ a {
   .cd-slideshow::before {
     /* never visible - this is used in jQuery to check the current MQ */
     content: "desktop";
+    visibility: hidden;
   }
   .cd-slideshow .sub-slides {
     -webkit-transition: all 2.25s;
@@ -159,6 +166,9 @@ a {
   vertical-align: middle;
   text-align: center;
   background-color: #fff;
+}
+.content-wrapper l .cd-slider-content .content-wrapper ol li:nth-of-type(2) {
+  display: inline-block;
 }
 .cd-slideshow > li .cd-slider-content .content-wrapper {
   /* background: linear-gradient(#444 0%, #555 40%, #fff 100%); */
@@ -211,6 +221,7 @@ a {
   .cd-slider-content::after {
     /* this is used to change the slide background color when the slide is out of focus */
     content: "";
+    visibility: hidden;
     position: absolute;
     z-index: 3;
     top: 0;
@@ -234,6 +245,14 @@ a {
   .visible .cd-slider-content::after {
     opacity: 0;
     visibility: hidden;
+  }
+  @keyframes scroll {
+    0% {
+      top: 100%;
+    }
+    100% {
+      top: -170%;
+    }
   }
 
   /* --------------------------
