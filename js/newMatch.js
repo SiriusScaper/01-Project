@@ -65,3 +65,38 @@ $(document).ready(function(){
     return quicksortBasic(lesser).concat(pivot, quicksortBasic(greater));
   }
 })
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//pull up a fake ad every two clicks.
+
+// let clickCounter = 1;
+// let adCounter = 1;
+// let adArray = ['#ad1','#ad2', '#ad3', '#ad4'];
+// function adEnabler(){
+//     $(adArray[adCounter]).modal();
+//     clickCounter++;
+//     adCounter++;
+//     if(adCounter-1>adArray.length){
+//       adCounter = 0;
+//     }
+// }
+//   $('#test').on('click', function(event){
+//     event.preventDefault();
+//     adEnabler();
+//   })
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//Skip profile creation if user already exists.
+
+// function userCheck(){
+//   database.ref().once('value').then(function(snapshot){
+//     let sv = snapshot.val();
+//     let user= firebase.auth().currentUser.uid
+//     for(var i = 0; i<sv.userList.length; i++){
+//       if(user == sv.userList[[i]]){
+//         skip to match page
+//       }
+//     }
+//   })
+// }
