@@ -405,7 +405,7 @@ no-js
   color: rgb(255, 225, 72);
   position: absolute;
   top: 100%;
-  animation: scroll 120s linear 2s forwards;
+  animation: scroll 23s linear 1s forwards;
 }
 #titlecontent h2 {
   text-align: center;
@@ -415,6 +415,51 @@ no-js
     top: 100%;
   }
   100% {
-    top: -170%;
+    top: -140%;
+  }
+}
+
+#jarjar {
+  position: fixed;
+  bottom: 0;
+  left: -300px;
+  animation: jarjar_slidein 2s linear 0.5s infinite;
+  background: url(../img/jarjar.png);
+  z-index: 9999;
+  width: 200px;
+  height: 150px;
+  z-index: 1000;
+  opacity: 0.9;
+  /* transition: 2s ease-in-out linear; */
+}
+#jarjar:hover {
+  opacity: 1;
+  /* transition: 2s ease-in-out linear; */
+}
+#gif_Display {
+  position: absolute;
+  bottom: 500px;
+  width: 100px;
+  height: 100px;
+  z-index: 100000;
+}
+
+#jarjar::after {
+  content: "Nervous?";
+  position: absolute;
+  bottom: 10px;
+  width: 50px;
+  color: #fff;
+  text-align: center;
+}
+@keyframes jarjar_slidein {
+  0% {
+    left: 100px;
+  }
+  50% {
+    left: 150px;
+  }
+  100% {
+    left: 100px;
   }
 }

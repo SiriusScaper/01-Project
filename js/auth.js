@@ -1,6 +1,5 @@
 // Initialize the FirebaseUI Widget using Firebase.
-var ui = new firebaseui.auth.AuthUI(firebase.auth()),
-  slideshow = $("");
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 ui.start("#firebaseui-auth-container", {
   signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID],
@@ -13,6 +12,7 @@ var uiConfig = {
       // User successfully signed in.
       // Return type determines whether we continue the redirect automatically
       // or whether we leave that to developer to handle.
+      updateSlide("next");
       return false;
     },
     uiShown: function() {

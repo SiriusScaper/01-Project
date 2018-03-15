@@ -9,6 +9,22 @@ jQuery(document).ready(function($) {
     scrolling = true;
   //important to keep scroll tracking set to true; updateOnScroll() catches the DOMMouseEvent and
   //hijacks it, we just want to
+  // function encourage() {
+  //   let queryURL =
+  //     "https://api.giphy.com/v1/gifs/random?tag=you+can+do+it&api_key=Bw2Sm4QKp6nTTXf2FHIX43JXWoQpQCpo";
+  //   $.ajax({
+  //     url: queryURL,
+  //     method: "GET",
+  //   }).then(function(response) {
+  //     console.log(response);
+  //     $("#gif_Display").empty();
+  //     $("#gif_Display").append(
+  //       '<img src="' +
+  //         response.data.images.fixed_width.url +
+  //         '" alt="randomGif">'
+  //     );
+  //   });
+  // }
 
   /* check media query and bind corresponding events */
   var mq = windowWidth(slideshow.get(0)),
@@ -211,6 +227,34 @@ jQuery(document).ready(function($) {
           .addClass("sub-visible");
     }
   }
+  setTimeout(function() {
+    // updateSlide("next");
+    console.log("25 sec timeout > page scroll down");
+  }, 25000);
+
+  function encourage() {
+    let queryURL =
+      "https://api.giphy.com/v1/gifs/random?tag=you+can+do+it&api_key=Bw2Sm4QKp6nTTXf2FHIX43JXWoQpQCpo";
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+    }).then(function(response) {
+      console.log(response);
+      $("#gif_Display").empty();
+      $("#gif_Display").append(
+        '<img src="' +
+          response.data.images.fixed_width.url +
+          '" alt="randomGif">'
+      );
+    });
+  }
+
+  $(".jardisplay").on("click", "#jarjar", function() {
+    encourage();
+  });
+  $("#gif_Display").on("click", function() {
+    $(this).empty();
+  });
 
   function updateOnResize() {
     mq = windowWidth(slideshow.get(0));

@@ -70,11 +70,6 @@ $(document).ready(function() {
     anotherPage = response.next;
     speciesPageSearch();
   });
-  //initial ajax call to swapi to get species information
-  $("#encourageBtn").on("click", "#listenedForId", function(event) {
-    event.preventDefault();
-    updateProfile();
-  });
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -236,17 +231,6 @@ $(document).ready(function() {
 
 //race selection on button click
 //will happen once the user has filled in basic profile details
-
-$("#parentDiv").on("click", "#encourage", function() {
-  let queryURL =
-    "https://api.giphy.com/v1/gifs/random?tag=you+can+do_it&api_key=Bw2Sm4QKp6nTTXf2FHIX43JXWoQpQCpo";
-  $.ajax({
-    queryURL: queryURL,
-    method: "GET",
-  }).then(function(response) {
-    console.log(response);
-  });
-});
 
 //"I need encouragement" button?
 //Give them a button to click if they need a boost because some people need a little confidence bump to initiate
