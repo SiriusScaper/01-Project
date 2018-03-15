@@ -405,7 +405,7 @@ no-js
   color: rgb(255, 225, 72);
   position: absolute;
   top: 100%;
-  animation: scroll 23s linear 1s forwards;
+  animation: scroll 50s linear 1s forwards;
 }
 #titlecontent h2 {
   text-align: center;

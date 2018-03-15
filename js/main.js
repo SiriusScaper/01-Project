@@ -255,6 +255,12 @@ jQuery(document).ready(function($) {
   $("#gif_Display").on("click", function() {
     $(this).empty();
   });
+  $("#other").on("click", function() {
+    if (firebase.auth().currentUser.uid != null) {
+      updateSlide("next");
+      console.log(this);
+    }
+  });
 
   function updateOnResize() {
     mq = windowWidth(slideshow.get(0));
