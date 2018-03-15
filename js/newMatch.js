@@ -163,7 +163,7 @@ $('.presetChat').on('click', function(event){
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
+//sort function for arranging matches
   function quicksortBasic(array) {
     if (array.length < 2) {
       return array;
@@ -184,3 +184,24 @@ $('.presetChat').on('click', function(event){
     return quicksortBasic(lesser).concat(pivot, quicksortBasic(greater));
   }
 });
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+let clickCounter = 1;
+let adCounter = 0;
+let adArray = ['#ad1','#ad2', '#ad3', '#ad4'];
+function adEnabler(){
+  if(clickCounter%2 == 0){
+    $(adArray[adCounter]).modal();
+    clickCounter++;
+    adCounter++;
+    if(adCounter-1>adArray.length){
+      adCounter = 0;
+    }
+  } else{
+    clickCounter++;
+  }
+}
+  $('button').on('click', function(event){
+    event.preventDefault();
+    adEnabler();
+  })
