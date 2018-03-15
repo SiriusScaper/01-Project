@@ -75,6 +75,30 @@ $(document).ready(function() {
   //   })
       //scope issue with msg_toDisplay as well.  Worked on my other machine, I swear.
 
+      let name_toDisplay = "";
+      let msgUserUID = "";
+      let startListening = function(){
+        database.ref('newChat/'+chatroom).on('child_added', function(snapshot){
+          let sv = snapshot.val();
+          let msgUserUID = sv.user
+          let msg_toDisplay = sv.msg
+
+          database.ref('userData/'+firebase.auth().currentUser.uid).once('value').then(function(snapshot){
+            let sv = snapshot.val();
+            let name_toDisplay = sv.name;
+
+            database.ref().once('value').then(function(snap){
+              let sVal = snap.val();
+              // console.log(sVal.newChat[chatroom].uid1);
+              // if(sVal.newChat[chatroom].uid1 == firebase.auth().currentUser.uid || sVal.newChat[chatroom].uid2 == firebase.auth().currentUser.uid){
+                // console.log(msgUserUID);
+                // name_toDisplay = sVal.userData[msgUserUID].name;
+                $('#msg_Display').append('<div>'+name_toDisplay+': '+msg_toDisplay+'</div>');
+              // }
+            });
+          })
+        })
+      }
 
         // database.ref().once('value').then(function(snap){
         //   let sVal = snap.val();
@@ -93,7 +117,7 @@ $(document).ready(function() {
         //   }
         // });
 
-  }
+  // }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 $('#match').on('click', function(event){
@@ -102,8 +126,9 @@ $('#match').on('click', function(event){
 })
 let matchMe = function(){
   chatroom = firebase.auth().currentUser.uid+' and '+currentMatchUID;
-  database.ref('newChat').update({[chatroom]:{
-    uid1:firebase.auth().currentUser.uid, uid2:currentMatchUID}})
+  database.ref('newChat').update([chatroom])
+  // database.ref('newChat').update({[chatroom]:{
+  //   uid1:firebase.auth().currentUser.uid, uid2:currentMatchUID}})
   startListening();
   //have it remove the button it's attached to so it can't be clicked again
   //we don't want to create multiple instances of the chat
