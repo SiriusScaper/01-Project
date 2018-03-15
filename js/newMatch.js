@@ -7,6 +7,7 @@
 $(document).ready(function() {
   let database = firebase.database();
   let currentMatchUID = null;
+  let chatroom = "firebase.auth().currentUser.uid+' and '+currentMatchUID";
   //click event for a new patch partner
   $("#matchBtn").on("click", function(event) {
     event.preventDefault();
@@ -54,7 +55,90 @@ $(document).ready(function() {
         $('#match_pic').attr('src', profilePic);
       });
   });
+
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //Need to fix a scope bug with MsgUserUID
+
+  // let msgUserUID = "";
+  // let startListening = function(){
+  //   database.ref('newChat/'+chatroom).on('child_added', function(snapshot){
+  //     let test1 = database.userData;
+  //     console.log(test1);
+  //     let test2 = database.userData.Hf9YLLqoppZGYnNGmFIv8nrxOIA3;
+  //     console.log(test2);
+  //     let sv = snapshot.val();
+  //     let user = firebase.auth().currentUser.uid;
+  //     let name_toDisplay = database.userData[user].name;
+  //     // msgUserUID = sv.user
+  //     let msg_toDisplay = sv.msg
+  //     $('#msg_Display').append('<div>'+name_toDisplay+': '+msg_toDisplay+'</div>');
+  //   })
+      //scope issue with msg_toDisplay as well.  Worked on my other machine, I swear.
+
+
+        // database.ref().once('value').then(function(snap){
+        //   let sVal = snap.val();
+        //   console.log(sVal);
+        //   console.log(sVal.newChat[chatroom].uid1);
+        //   if(sVal.newChat[chatroom].uid1 == firebase.auth().currentUser.uid || sVal.newChat[chatroom].uid2 == firebase.auth().currentUser.uid){
+        //     // console.log(msgUserUID);
+        //     // name_toDisplay = sVal.userData[msgUserUID].name;
+        //     //temporary fix
+        //     // let user = firebase.auth().currentUser.uid;
+        //     // name_toDisplay = sVal.userData[user].name;
+        //     let msg_toDisplay = sVal.newChat[chatroom].msg
+        //     console.log(name_toDisplay);
+        //     console.log(msg_toDisplay);
+        //     $('#msg_Display').append('<div>'+name_toDisplay+': '+msg_toDisplay+'</div>');
+        //   }
+        // });
+
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$('#match').on('click', function(event){
+  event.preventDefault();
+  matchMe();
+})
+let matchMe = function(){
+  chatroom = firebase.auth().currentUser.uid+' and '+currentMatchUID;
+  database.ref('newChat').update({[chatroom]:{
+    uid1:firebase.auth().currentUser.uid, uid2:currentMatchUID}})
+  startListening();
+  //have it remove the button it's attached to so it can't be clicked again
+  //we don't want to create multiple instances of the chat
+
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//chat feature
+
+$('#post').on('click', function(event){
+  event.preventDefault();
+  let msgUser = firebase.auth().currentUser.uid;
+  let msgText = $('#user_Message').val().trim();
+  chatroom = firebase.auth().currentUser.uid+' and '+currentMatchUID;
+  database.ref('newChat/'+chatroom).push({
+    user:msgUser,
+    msg:msgText
+  })
+})
+
+$('.presetChat').on('click', function(event){
+  event.preventDefault();
+  let msgUser = firebase.auth().currentUser.uid;
+  let msgText = $(this).text().trim();
+  chatroom = firebase.auth().currentUser.uid+' and '+currentMatchUID;
+  database.ref('newChat/'+chatroom).push({
+    user:msgUser,
+    msg:msgText
+  })
+})
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
   function quicksortBasic(array) {
     if (array.length < 2) {
       return array;

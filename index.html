@@ -119,7 +119,7 @@
                                         <li id="display_user_species">Species</li>
                                     </ol>
                                 </div>
-                                <button id="matchBtn" type="button" name="match">Match Me!</button>
+                                <button id="matchBtn" type="button" name="match">New Match!</button>
                                 <div class="column_right profile_img">
                                     <img id="match_pic" src="" alt="" style="max-height:10vh; width:auto;">
                                     <ol>
@@ -128,6 +128,7 @@
                                         <li id="display_match_gender">Gender</li>
                                         <li id="display_match_species">Species</li>
                                     </ol>
+                                    <button id="match" type="button" name="button">Oooo Spicy!</button>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +140,20 @@
                         <div class="content-wrapper">
                             <h2>CONVOS</h2>
                             <!-- FIRECHAT -->
+                            <div class="chat">
+                              <div class="" id="msg_Display" style="width:200px; height:300px; background-color:white; margin-left:300px"></div>
+                              <input id="user_Message" type="text" name="" value="">
+                              <button id="post" type="button" name="Post">Post</button>
+                              <button class="presetChat" type="button" name="button">Did it hurt when you fell from Cloud City?</button>
+                              <button class="presetChat" type="button" name="button">You're the droid I've been looking for!</button>
+                              <button class="presetChat" type="button" name="button">If you were a blaster pistol, you'd be set to STUNNING!</button>
+                              <button class="presetChat" type="button" name="button">Your Bothan spies stole my heart.</button>
+                              <button class="presetChat" type="button" name="button">You opened the blast doors to my heart.</button>
+                              <button class="presetChat" type="button" name="button">Don't worry, I never shoot first.</button>
+                              <button class="presetChat" type="button" name="button">You must be a moisture farmer...</button>
+                            </div>
                             <!--
+
                                     * ******************** *
                                     *     INJECT HERE      *
                                     * ******************** *
@@ -223,9 +237,9 @@
     </script>
     <script src="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <script src='js/auth.js'></script>
     <script defer src='js/updateProfile.js'></script>
     <script defer src='js/newMatch.js'></script>
-    <script defer src='js/auth.js'></script>
     <script defer src='js/chat.js'></script>
 
 </body>
