@@ -53,7 +53,7 @@ $(document).ready(function() {
       array[i].match = Math.floor(Math.random() * Math.floor(100));
     }
   }
-  let queryURL ='https://swapi.co/api/species/';
+  let queryURL = "https://swapi.co/api/species/";
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -92,11 +92,11 @@ $(document).ready(function() {
       .trim();
     let userSpeciesImg = "img/raceImgs/" + userSpecies + "Img.jpg";
 
-    console.log(user);
-    console.log(userName);
-    console.log(userAge);
-    console.log(userGender);
-    console.log(userSpecies);
+    // console.log(user);
+    // console.log(userName);
+    // console.log(userAge);
+    // console.log(userGender);
+    // console.log(userSpecies);
 
     //make userMatches for the new user by taking snapshot
     database
@@ -148,24 +148,25 @@ $(document).ready(function() {
       speciesImg: userSpeciesImg,
     });
   }
-  $('#submit_profile').on('click',function(event){
+  $("#submit_profile").on("click", function(event) {
     event.preventDefault();
     updateProfile();
-  })
+  });
 
-  $('#populate_Profile').on('click',function(){
-    $('.eraseBtn').empty();
-    database.ref('userData/'+firebase.auth().currentUser.uid).once('value').then(function(snapshot){
-      let sv = snapshot.val();
-      $('#display_user_name').text('Name: '+sv.name);
-      $('#display_user_age').text('Age: '+sv.age);
-      $('#display_user_gender').text('Gender: '+sv.gender);
-      $('#display_user_species').text('Species: '+sv.species);
-      $('#speciesImg_Display').attr('src', sv.speciesImg);
-    })
-  })
-
-
+  $("#populate_Profile").on("click", function() {
+    $(".eraseBtn").empty();
+    database
+      .ref("userData/" + firebase.auth().currentUser.uid)
+      .once("value")
+      .then(function(snapshot) {
+        let sv = snapshot.val();
+        $("#display_user_name").text("Name: " + sv.name);
+        $("#display_user_age").text("Age: " + sv.age);
+        $("#display_user_gender").text("Gender: " + sv.gender);
+        $("#display_user_species").text("Species: " + sv.species);
+        $("#speciesImg_Display").attr("src", sv.speciesImg);
+      });
+  });
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

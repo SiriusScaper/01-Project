@@ -249,13 +249,13 @@ jQuery(document).ready(function($) {
     });
   }
 
-  $(".jardisplay").on("click", "#jarjar", function() {
+  $(".jardisplay").on("mouseup", "#jarjar", function() {
     encourage();
   });
-  $("#gif_Display").on("click", function() {
+  $("#gif_Display").on("mouseup", function() {
     $(this).empty();
   });
-  $("#other").on("click", function() {
+  $("#other").on("mouseup", function() {
     if (firebase.auth().currentUser.uid != null) {
       updateSlide("next");
       console.log(this);
