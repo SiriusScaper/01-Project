@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
     <!-- DEBUG -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arvo|Lobster" rel="stylesheet">
@@ -34,14 +35,16 @@
                         <div class="content-wrapper">
                             <div id="titles">
                                 <div id="titlecontent">
-                                    <h2>Star Wars XYX</h2>
-                                    <p>The FIRST SOURCER reigns. Having decimated the peaceful Republic, Supreme Leader Nelly
-                                        now deploys his heroic legions to seize control of the userland permissions and escape
-                                        the sandbox. Only General Treighton's band of OHM-RESISTANCE fighters stand against
-                                        the rising hidious races available in this dating-app, certain that Jedi Master Jordan
-                                        will return and restore a spark of hope to the fight. But the Ohm-Resistance has
-                                        been exposed. As the First Sourcer speeds toward the rebel base, the brave heroes
-                                        mount a desperate escape....
+                                    <h2>SWindlr</h2>
+                                    <p>In this vast and fast-paced galaxy, it’s easy to go looking for love in Alderaan places.
+                                        Well, look no further! SWindlr (trademark pending) is a new hope for your dating
+                                        life! Whether you’re looking for a one-night-wookie in the Cantina or a rage-driven
+                                        religious fanatic to take over the galaxy with, our 100% infallible, proprietary
+                                        matching algorithm will serve up the smartest and sexiest singles. “My dating life
+                                        used to be like the trash compactor on floor four, back on the first deathstar..
+                                        But after signing up for SWindr I’ve found more species than I knew existed!” Says
+                                        Treighton, a part-time Hutt's Frothly-Floating Pleasure Barge attendant. SWindr!
+                                        Sign up now! (See terms for details)
                                     </p>
                                 </div>
                             </div>
@@ -55,8 +58,11 @@
                             <div class="cd-slider-content">
                                 <div class="content-wrapper">
                                     <h3>CHOOSE YOUR PATH</h3>
-                                    <button id="other">START YOUR JOURNEY</button>
                                     <div class="fire_hidden" id="firebaseui-auth-container"></div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <button id="other">START YOUR JOURNEY</button>
                                     <div id="parentDiv"></div>
                                 </div>
                             </div>
@@ -112,9 +118,9 @@
                             <h2>SELECTION</h2>
                             <div class="column">
                                 <div class="column_left profile_img">
-                                  <div class="eraseBtn">
-                                    <button id="populate_Profile">It'sa Meeeee</button>
-                                  </div>
+                                    <div class="eraseBtn">
+                                        <button id="populate_Profile">CLICK TO START</button>
+                                    </div>
                                     <img id="speciesImg_Display" src="" alt="profileIMG" style="max-height:10vh; width:auto;">
                                     <ol id="">
                                         <li id="display_user_name">Name</li>
@@ -123,7 +129,7 @@
                                         <li id="display_user_species">Species</li>
                                     </ol>
                                 </div>
-                                <button id="matchBtn" type="button" name="match">New Match!</button>
+
                                 <div class="column_right profile_img">
                                     <img id="match_pic" src="" alt="" style="max-height:10vh; width:auto;">
                                     <ol>
@@ -132,6 +138,7 @@
                                         <li id="display_match_gender">Gender</li>
                                         <li id="display_match_species">Species</li>
                                     </ol>
+                                    <button id="matchBtn" type="button" name="match">New Match!</button>
                                     <button id="match" type="button" name="button">Oooo Spicy!</button>
                                 </div>
                             </div>
@@ -145,208 +152,150 @@
                             <h2>CONVOS</h2>
                             <!-- FIRECHAT -->
                             <div class="chat">
-                              <div class="" id="msg_Display" style="width:200px; height:300px; background-color:grey; margin-left:300px"></div>
-                              <input id="user_Message" type="text" name="" value="">
-                              <button id="post" type="button" name="Post">Post</button>
-                              <button class="presetChat" type="button" name="button">Did it hurt when you fell from Cloud City?</button>
-                              <button class="presetChat" type="button" name="button">You're the droid I've been looking for!</button>
-                              <button class="presetChat" type="button" name="button">If you were a blaster pistol, you'd be set to STUNNING!</button>
-                              <button class="presetChat" type="button" name="button">Your Bothan spies stole my heart.</button>
-                              <button class="presetChat" type="button" name="button">You opened the blast doors to my heart.</button>
-                              <button class="presetChat" type="button" name="button">Don't worry, I never shoot first.</button>
-                              <button class="presetChat" type="button" name="button">You must be a moisture farmer...</button>
+                                <span id=""></span>
+                                <div style="border: 1px solid red;" id="msg_Display"></div>
+                                <br>
+                                <input id="user_Message" type="text" name="" value="">
+                                <button id="post" type="button" name="Post">Post</button>
+                                <button class="presetChat" type="button" name="button">Did it hurt when you fell from Cloud City?</button>
+                                <button class="presetChat" type="button" name="button">You're the droid I've been looking for!</button>
+                                <button class="presetChat" type="button" name="button">If you were a blaster pistol, you'd be set to STUNNING!</button>
+                                <button class="presetChat" type="button" name="button">Your Bothan spies stole my heart.</button>
+                                <button class="presetChat" type="button" name="button">You opened the blast doors to my heart.</button>
+                                <button class="presetChat" type="button" name="button">Don't worry, I never shoot first.</button>
+                                <button class="presetChat" type="button" name="button">You must be a moisture farmer...</button>
                             </div>
-                            <!--
-
-                                    * ******************** *
-                                    *     INJECT HERE      *
-                                    * ******************** *
-                                 -->
                         </div>
                     </div>
                 </li>
-
-                <li id="slide-6">
-                    <ol class="sub-slides">
-                        <li>
-                            <div class="cd-slider-content">
-                                <div class="content-wrapper">
-                                    <h2>Slider #6</h2>
-
-                                    <!--
-                                    * ******************** *
-                                    *     INJECT HERE      *
-                                    * ******************** *
-                                 -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="cd-slider-content">
-                                <div class="content-wrapper">
-                                    <h2>Slider #6 - Sub #1</h2>
-
-                                    <!--
-                                    * ******************** *
-                                    *     INJECT HERE      *
-                                    * ******************** *
-                                 -->
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="cd-slider-content">
-                                <div class="content-wrapper">
-                                    <h2>Slider #6 - Sub #2</h2>
-
-                                    <!--
-                                    * ******************** *
-                                    *     INJECT HERE      *
-                                    * ******************** *
-                                 -->
-                                </div>
-                            </div>
-                        </li>
-                    </ol>
-                    <!-- .sub-slides -->
-                </li>
             </ol>
-            <!-- .cd-slideshow -->
         </div>
-        <!-- .cd-slideshow-wrapper -->
-        <!-- <div class="fire_hidden" id="firebaseui-auth-container"></div> -->
     </div>
     </div>
     <!-- .main_wrapper -->
     <!-- Ad Modal 1 TroopersOnly -->
-<div class="modal fade" id="ad1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" style="background-image:url(https://i.imgur.com/qqIW5HD.jpg); background-size:cover;">
-        <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      <div class="modal-body text-light">
-        <div class="row">
-          <div class="col-md-4 text-center" style="font-family: 'Arvo', serif;">
-            <br>
-            Civilians just can't understand...
-          </div>
+    <div class="modal fade" id="ad1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-image:url(https://i.imgur.com/qqIW5HD.jpg); background-size:cover;">
+                <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body text-light">
+                    <div class="row">
+                        <div class="col-md-4 text-center" style="font-family: 'Arvo', serif;">
+                            <br> Civilians just can't understand...
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mx-auto text-center">
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 mx-auto text-center">
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 ml-auto text-center" style="font-family: 'Lobster', cursive;">
+                            <br>
+                            <br> TroopersOnly.com
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row">
-          <div class="col-md-4 mx-auto text-center">
-            <br>
-            <br>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-8 mx-auto text-center">
-            <br>
-            <br>
-            <br>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 ml-auto text-center" style="font-family: 'Lobster', cursive;">
-            <br>
-            <br>
-            TroopersOnly.com
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-</div>
 
-<!-- Ad Modal 2 Vader Condoms -->
-<div class="modal fade" id="ad2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header mx-auto">
-        <img src="http://www.megadarky.cz/8882-large_default/kondom-i-will-not-be-your-father.jpg" alt="vaderCondom" style="height:200px; width:auto;">
-        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" style="color:black;">
-        Make sure you don't blow up your life when you torpedo the exhaust port.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+    <!-- Ad Modal 2 Vader Condoms -->
+    <div class="modal fade" id="ad2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header mx-auto">
+                    <img src="http://www.megadarky.cz/8882-large_default/kondom-i-will-not-be-your-father.jpg" alt="vaderCondom" style="height:200px; width:auto;">
+                    <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="color:black;">
+                    Make sure you don't blow up your life when you torpedo the exhaust port.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-<!-- Ad Modal 3  Endor Bed and Breakfast -->
-<div class="modal fade" id="ad3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" style="background-image:url(https://images.unsplash.com/photo-1477696957384-3b1d731c4cff?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=27463acb8518d4e6819d6f4441c8e47f&auto=format&fit=crop&w=1950&q=80); background-size:cover;">
-        <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      <div class="modal-body text-light" style="font-family: 'Indie Flower', cursive;">
-        <div class="row">
-          <div class="col-md-4 mx-auto text-center" style="font-family: 'Indie Flower', cursive;">
-            Majestic Forests.
-          </div>
+    <!-- Ad Modal 3  Endor Bed and Breakfast -->
+    <div class="modal fade" id="ad3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-image:url(https://images.unsplash.com/photo-1477696957384-3b1d731c4cff?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=27463acb8518d4e6819d6f4441c8e47f&auto=format&fit=crop&w=1950&q=80); background-size:cover;">
+                <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body text-light" style="font-family: 'Indie Flower', cursive;">
+                    <div class="row">
+                        <div class="col-md-4 mx-auto text-center" style="font-family: 'Indie Flower', cursive;">
+                            Majestic Forests.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mx-auto text-center">
+                            <br> Cuddly Ewoks.
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 mx-auto text-center">
+                            <br> A cozy place to yub-nub all night.
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 ml-auto text-center" style="font-family: 'Coiny', cursive;">
+                            Travel Endor
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer text-light">
+                    <span class="mr-auto">Book Now!</span>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="row">
-          <div class="col-md-4 mx-auto text-center">
-            <br>
-            Cuddly Ewoks.
-            <br>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-8 mx-auto text-center">
-            <br>
-            A cozy place to yub-nub all night.
-            <br>
-            <br>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2 ml-auto text-center" style="font-family: 'Coiny', cursive;">
-            Travel Endor
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer text-light">
-        <span class="mr-auto">Book Now!</span>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
     </div>
-  </div>
-</div>
 
-<!-- Ad Modal 4  Gillehtte Rebel -->
-<div class="modal fade" id="ad4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content" style="background-image:url(https://occhimagazine.com/occhi/wp-content/uploads/2017/12/star-wars-lightsaber-facebook-profile-00.jpg); background-size:cover;">
-      <div class="modal-body text-light text-light" style="height:40vh;">
-        <div class="row">
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
+    <!-- Ad Modal 4  Gillehtte Rebel -->
+    <div class="modal fade" id="ad4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-image:url(https://occhimagazine.com/occhi/wp-content/uploads/2017/12/star-wars-lightsaber-facebook-profile-00.jpg); background-size:cover;">
+                <div class="modal-body text-light text-light" style="height:40vh;">
+                    <div class="row">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 ml-auto mt-3">Gillette Rebel. For the closest shave.</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row">
-          <div class="col-md-8 ml-auto mt-3">Gillette Rebel.  For the closest shave.</div>
-        </div>
-      </div>
     </div>
-  </div>
-</div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

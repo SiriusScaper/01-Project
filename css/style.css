@@ -105,13 +105,14 @@ a {
   margin-right: 0;
 }
 .column {
-  width: 25%;
+  width: 80%;
   margin: 0 auto;
   border: 1px solid #aaa;
   display: block;
-  height: 30%;
+  height: 50%;
   padding: 30px;
   background-color: #555;
+  display: block;
 }
 .column input {
   outline: 0;
@@ -127,6 +128,28 @@ select {
   background: #ccc;
   padding: 1px 5px;
   cursor: context-menu;
+}
+.chat {
+  display: block;
+  height: auto;
+  width: 300px;
+  margin: 0 auto;
+}
+.chat button {
+  display: block;
+  margin: 0 auto;
+}
+.column_left {
+  display: block;
+  float: left;
+}
+.column_right {
+  display: block;
+  float: right;
+  /* height: auto; */
+}
+#match_pic {
+  border: 2px solid #000;
 }
 .cd-slideshow.remove-transitions {
   /* 
@@ -405,7 +428,7 @@ no-js
   color: rgb(255, 225, 72);
   position: absolute;
   top: 100%;
-  animation: scroll 50s linear 1s forwards;
+  animation: scroll 120s linear 1s forwards;
 }
 #titlecontent h2 {
   text-align: center;
@@ -421,15 +444,17 @@ no-js
 
 #jarjar {
   position: fixed;
-  bottom: 0;
-  left: -300px;
-  animation: jarjar_slidein 2s linear 0.5s infinite;
+  bottom: -100px;
+  left: 50px;
+  animation: jarjar_slidein 8s linear 3s infinite;
   background: url(../img/jarjar.png);
   z-index: 9999;
   width: 200px;
   height: 150px;
   z-index: 1000;
-  opacity: 0.9;
+  opacity: 0.8;
+  outline: 0;
+  border: 0;
   /* transition: 2s ease-in-out linear; */
 }
 #jarjar:hover {
@@ -454,12 +479,12 @@ no-js
 }
 @keyframes jarjar_slidein {
   0% {
-    left: 100px;
+    bottom: -100px;
   }
   50% {
-    left: 150px;
+    bottom: -10px;
   }
   100% {
-    left: 100px;
+    bottom: -100px;
   }
 }
